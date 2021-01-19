@@ -1,0 +1,109 @@
+.newIn {
+    padding-top: 75px;
+    padding-bottom: 75px;
+
+    h1 {
+        @include Text($txtDarkOrange, $h6, $fwRegular);
+        margin-bottom: 40px;
+        padding-bottom: 20px ;
+        border-bottom: 1px solid $light;
+        position: relative;
+        letter-spacing: 1.7px;
+
+        &::after {
+            content: '';
+            height: 4px;
+            width: 125px;
+            @include position(absolute, 93%, 0, 2);
+            @include linear-gradient(to right);
+        }
+    }
+
+    .newIn__list {
+        .newIn__list__item {      
+            .newIn__item__content {
+                position: relative;
+                border-radius: 10px;
+                overflow: hidden;
+                
+                &:hover .newIn__item__overlay {
+                    left: 0;
+                    transition-property: all;
+                    transition-duration: .5s;
+                }
+
+                &:hover .newIn__item__detail {
+                    opacity: 1;
+                    transition-property: all;
+                    transition-duration: .5s;
+                }
+            
+                img {
+                    width: 100%;
+                }
+
+                .newIn__item__detail {
+                    @include position(absolute, 0, 0, 3);
+                    width: 100%;
+                    height: 100%;
+                    @include flex(column, center, center);
+                    opacity: 0;
+                    transition-duration: .5s;
+
+                    i {
+                        color: white;
+                        line-height: 80px;
+                        width: 80px;
+                        height: 80px;
+                        @include btn(transparent, 50%, 2px solid $white, 0);
+                        margin-bottom: 20px;
+                        transition: all .5s;
+
+                        &:hover {
+                            transform: scale(0.9);
+                        }
+                    }
+
+                    a {
+                        @include Text($txtWhite, $p3, $fwMedium);
+                        letter-spacing: 4px;
+                        margin-bottom: 10px;
+                        display: block;
+                    }
+
+                    p {
+                        @include Text($txtWhite, $p1, $fwMedium);
+                        margin-bottom: 0;
+
+                        @media (max-width: 991.98px) {
+                            font-size: $p2;
+                        }
+
+                        @media (max-width: 767.98px) {
+                            font-size: $p1;
+                        }
+                    }
+                }
+
+                .newIn__item__overlay {
+                    @include overlay(2);
+                    @include linear-gradient(to top right);
+                    opacity: .9;
+                    transform: skewX(45deg) scaleX(2.3) scaleY(1.1);
+                    @include position(absolute, 0%, -230%, 2);
+                    transition-duration: .5s;
+                }
+            }
+
+            .newIn__item__film {
+                @include Text($txtGrey, $h6, $fwMedium);
+            }
+
+            .newIn__item__stars i {
+                width: 18px;
+                font-size: 18px;
+                color: $orange;
+            }
+        }
+    }
+}

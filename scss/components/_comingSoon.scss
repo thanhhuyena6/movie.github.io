@@ -1,0 +1,167 @@
+.comingSoon {
+    .carousel {
+        .carousel-inner {
+            .carousel-item {
+                background-color: $dark;
+
+                &:nth-child(1) {
+                    background-image: url('../../images/slide-3.png');
+                }
+
+                .carousel-caption {
+                    padding-top: 75px;
+                    padding-bottom: 50px;
+                    text-align: left;
+                    @include position(relative, 0, 0, 3);
+                    h1 {
+                        @include Text($txtWhite, $h6, $fwMedium);
+                        text-transform: uppercase;
+                        letter-spacing: 1.7px;
+                        margin-bottom: 40px;
+                        padding-bottom: 20px;
+                        border-bottom: 1px solid $darkGrey;
+                        position: relative;
+
+                        &::after {
+                            content: '';
+                            width: 125px;
+                            height: 4px;
+                            @include linear-gradient(to right);
+                            @include position(absolute, 94%, 0, 3);
+                        }
+                    }
+
+                    .carousel-caption__row {
+                        align-items: center;
+                        .carousel-caption__content {
+                            p:nth-child(1) {
+                                @include Text($txtDarkOrange, $p2, $fwMedium);
+                                letter-spacing: 2px;
+                                margin-bottom: 0;
+                            }
+
+                            p:nth-child(2) {
+                                @include Text($txtWhite, $h3, $fwLight);
+                                margin-bottom:0;
+                            }
+
+                            .carousel-caption__content__stars {
+                                i {
+                                    display: inline-block;
+                                    width: 14px;
+                                    font-size: $p2;
+                                    color: $orange;
+                                }
+
+                                span {
+                                    @include Text($txtWhite, $p2, $fwMedium);
+                                    opacity: .75;
+                                    margin-left: 8px;
+                                    i {
+                                        color: $txtWhite;
+                                    }
+                                }
+                            }
+
+                            .carousel-caption__content__summary {
+                                margin: 20px 0;
+                                padding: 0;
+                            }
+
+                            & > a {
+                                @include Text($darkOrange, $p4, $fwLight);
+                                letter-spacing: 4px;
+                                text-transform: uppercase;
+                            }
+                        }
+
+                        .carousel-caption__video {
+                            img {
+                                width: 100%;
+                                box-shadow: 0px 0px 20px black;
+                            }
+
+                            @media (max-width: 767.98px) {
+                                padding: 0;
+                                margin-top: 25px;
+                            }
+
+                            .carousel-caption__video__playBtn {
+                                @include positionCenter();
+                                @include btn(transparent, 50%, 2px solid $darkOrange, 0);
+                                width: 80px;
+                                height: 80px;
+                                font-size: 30px;
+                                line-height: 80px;
+                                color: $white;
+                                text-align: center;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .slider {
+        background-color: $dark;
+        padding: 55px 0;
+    
+        .slider__list {
+            position: relative;
+
+            .previous, .next {
+                @include position(absolute, 35%, -30px , 3);
+                font-size: 24px;
+                color: $darkOrange;
+
+                @media (max-width: 767.98px) {
+                    display: none;
+                }
+            }
+    
+            .next {
+                @include position(absolute, 35%, calc(100% - 15px + 30px) , 3);
+            }
+    
+            .slider__list__row {
+                overflow: hidden;
+                
+                .slider__list__item {
+                    text-align: center;
+                    position: relative;
+
+                    .slider__list__item__overlay {
+                        @include overlay(3);
+                        background-color: $dark;
+                        opacity: .7;
+
+                        &:hover {
+                            opacity: 0;
+                            transition: all .5s
+                        }
+                    }
+
+                    img {
+                        width: 100%;
+                        border-radius: 10px;
+                    }
+
+                    .slider__list__item__film {
+                        @include Text($txtWhite, $p1, $fwMedium);
+                        margin-top: 20px;
+                        margin-bottom: 0; 
+                    }
+
+                    .slider__list__item__date {
+                        @include Text($txtWhite, $p2, $fwMedium);
+                        opacity: .5;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+    }
+}

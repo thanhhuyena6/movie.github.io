@@ -1,0 +1,185 @@
+@import "./theme";
+@import "./mixin";
+@import "./components/header";
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+
+.slider {
+  .carousel-item {
+    height: 600px;
+    position: relative;
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+
+      @include position(absolute, 0, 0, 3);
+      background-image: linear-gradient(to top, black 0%, transparent 100%);
+    }
+
+    .carousel-caption {
+      width: 100%;
+      @include position(relative, 50%, 0, 4);
+      transform: translateY(-50%);
+
+      p:nth-child(1) {
+        @include Text($txtOrange, $p2, $fwLight);
+        letter-spacing: 2px;
+      }
+
+      p:nth-child(2) {
+        @include Text($txtWhite, $h1, $fwLight);
+      }
+
+      p:nth-child(3) {
+        @include Text($txtWhite, $h6, $fwRegular);
+        max-width: 705px;
+      }
+
+      .carousel-caption__trailer {
+        p {
+          @include Text($txtWhite, $p3, $fwBold);
+          @include btn(transparent, 50%, 2px solid $white, 0);
+          line-height: 48px;
+          width: 48px;
+          height: 48px;
+          text-align: center;
+        }
+
+        button {
+          @include btn(none, 200px, none, 12px 24px);
+          @include linear-gradient(to right);
+          @include Text($txtWhite, $p3, $fwMedium);
+          letter-spacing: 4px;
+        }
+      }
+    }
+
+    &.carousel-item--1 {
+      background-image: url("../images/hero-1.jpg");
+      background-size: cover;
+      background-position: center center;
+    }
+
+    &.carousel-item--2 {
+      background-image: url("../images/hero-2.jpg");
+      background-size: cover;
+      background-position: center center;
+    }
+
+    &.carousel-item--3 {
+      background-image: url("../images/hero-3.jpg");
+      background-size: cover;
+      background-position: center center;
+    }
+
+    &.carousel-item--4 {
+      background-image: url("../images/hero-2.jpg");
+      background-size: cover;
+      background-position: center center;
+    }
+  }
+
+  .carousel-indicators {
+    width: 100%;
+    justify-content: flex-start;
+    margin: auto;
+    bottom: 100px;
+
+    &.container {
+      padding-left: 15px;
+    }
+
+    li {
+      @include btn(transparent, 50%, 2px solid $white, 0);
+      margin-left: 8px;
+      width: 10px;
+      height: 10px;
+      box-sizing: border-box;
+    }
+
+    li.active {
+      background-color: $white;
+    }
+  }
+
+  // Large devices (desktops, less than 1200px)
+  @media (max-width: 1199.98px) {
+  }
+
+  // Medium devices (tablets, less than 992px)
+  @media (max-width: 991.98px) {
+  }
+
+  // Small devices (landscape phones, less than 768px)
+  @media (max-width: 767.98px) {
+  }
+
+  // Extra small devices (portrait phones, less than 576px)
+    @media (max-width: 575.98px) {
+        .carousel-item {
+
+            .carousel-caption {
+
+                padding: 0 30px;
+                p:nth-child(2) {
+                    font-size: $h3;
+                }
+            }
+            
+        }
+ 
+    }
+
+    @media (max-width: 375px) {
+      .carousel-item {
+
+          .carousel-caption {
+              padding: 0 30px;
+
+              p:nth-child(2) {
+                  font-size: $h4;
+              }
+
+              p:nth-child(3) {
+                font-size: $p2;
+            }
+          }
+          
+      }
+
+    }
+
+}
+
+@import "./components/newIn";
+
+@import "./components/showTime";
+
+@import "./components/comingSoon";
+
+.contact {
+  padding: 50px 0;
+  text-align: center;
+
+  p {
+    @include Text($txtGrey, $h5, $fwLight);
+    margin-bottom: 10px;
+  }
+
+  a {
+    @include Text(transparent, $h2, $fwMedium);
+    background: linear-gradient(330deg,#fbbd61 0%,#ec7532 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@import "./components/footer";

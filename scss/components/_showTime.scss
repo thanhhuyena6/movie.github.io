@@ -1,0 +1,170 @@
+.showTime {
+    padding: 75px 0;
+    .nav-tabs {
+        @media (max-width: 575.98px) {
+            flex-direction: column;
+            border-bottom: none;
+        }
+        .nav-item {
+            .nav-link {
+                @include Text($txtGrey, $h6, $fwMedium);
+                padding: 10px 30px 15px;
+                letter-spacing: 1px;
+                background-color: transparent;
+                border: none;
+                position: relative;
+
+                &::after {
+                    content: '';
+                    width: 0%;
+                    height: 4px;
+                    @include linear-gradient(to right);
+                    @include position(absolute, 94%, 0, 3);
+                    
+                    @media (max-width: 575.98px) {
+                        height: 0%;
+                        width: 4px;
+                        @include position(absolute, 0, 0, 3);
+                    }
+                }
+
+                &:hover {
+                    &::after{
+                        width: 100%;
+                        transition: all .5s;
+
+                        @media (max-width: 575.98px) {
+                            height: 100%;
+                            width: 4px;
+                        }
+                    }
+                }
+
+                &.active {
+                    color: $txtDarkOrange;
+                    position: relative;
+
+                    &::after {
+                        width: 100%;
+
+                        @media (max-width: 575.98px) {
+                            height: 100%;
+                            width: 4px;
+                        }
+                    }
+                }
+
+                @media (max-width: 991.98px) {
+                    font-size: $p1;
+                }
+
+                @media (max-width: 767.98px) {
+                    padding: 10px 20px 15px;
+                }
+
+                @media (max-width: 575.98px) {
+                    padding: 10px 30px;
+                }
+            }
+        }
+    }
+
+    .tab-content {
+        padding: 45px 0;
+        .showtime__item {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            padding-top: 0;
+            border-bottom: 1px solid $light;
+
+            &:last-child {
+                border-bottom: none;
+                padding-bottom: 0px;
+            }
+
+            .showtime__item__img {
+                img {
+                    width: 100%;
+                    border-radius: 10px;
+
+                    @media (max-width: 767.98px) {
+                        margin-bottom: 30px;
+                    }
+                }
+            }
+
+            .showtime__item__content {
+
+                p:nth-child(1) {
+                    @include Text($txtDarkOrange, $p2, $fwMedium);
+                    letter-spacing: 2px;
+                    margin-bottom: 0;
+                }
+
+                p:nth-child(2) {
+                    @include Text($txtDark, $h4, $fwLight);
+                    letter-spacing: 1px;
+                    margin-bottom: 10px;
+                }
+
+                p:nth-child(3) {
+                    @include Text($txtLightGrey, $p1, $fwMedium);
+                    margin-bottom: 20px;
+                }
+
+                & > a {
+                    @include Text($txtDarkOrange, $p4, $fwMedium);
+                    letter-spacing: 4px;
+                    margin-bottom: 20px;
+                    display: block;
+                }
+
+                .showtime__item__content__viewTime {
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-left: 0;
+                    margin-right: 0;
+
+                    .showtime__viewTime__item {
+
+                        i {
+                            font-size: $p3;
+                            color: $txtLightGrey;
+                        }
+    
+                        span {
+                            @include Text($txtLightGrey, $p4, $fwMedium);
+                            letter-spacing: 1.5px;
+                        }
+    
+                        a {
+                            @include btn($light, 5px, none, 7px 10px);
+                            @include Text($txtLightGrey, $p2, $fwMedium);
+                            margin-left: 5px;
+                        }
+
+                        @media (max-width: 575.98px) {
+                            display: block;
+                            width: 100%;
+                            margin-bottom: 25px;
+                        }
+                    }
+                    
+                    .showtime__viewTime__lenght {
+                        span.certificate {
+                            @include Text($txtWhite, $p3, $fwBold);
+                            @include btn($darkGrey, 50%, none, 0);
+                            line-height: 33px;
+                            width: 33px;
+                            height: 33px;
+                            display: inline-block;
+                            margin-left: 5px;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

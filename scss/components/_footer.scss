@@ -1,0 +1,43 @@
+.footer {
+    background-color: $dark;
+    padding-top: 50px;
+    padding-bottom: 20px;
+
+    .footer__item {
+        padding-bottom: 20px;
+        h1 {
+            @include Text($txtDarkOrange, $p1, $fwMedium);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding-bottom: 20px;
+            margin: 0;
+        }
+    
+        a {
+            @include Text($txtWhite, $p3, $fwMedium);
+            letter-spacing: 1.5px;
+            padding: 3px 0;
+            display: block;
+
+            &:hover {
+                color: $txtOrange;
+            }
+        }
+    }
+    
+    hr {
+        background-color: $txtLightGrey;
+    }
+
+    .copyright {
+        @include Text($txtWhite, $p2, $fwRegular);
+        margin: 0;
+
+        a {
+            @include Text($txtWhite, $p2, $fwRegular);
+            &:hover {
+                color: $txtOrange;
+            } 
+        }
+    }
+}

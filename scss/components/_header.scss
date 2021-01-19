@@ -1,0 +1,109 @@
+.header {
+    width: 100%;
+    @include position(absolute, 0, 0, 10);
+  
+    .navbar-nav {
+      border-bottom: 1px solid $white;
+    }
+  
+    p:first-child {
+      @include Text($txtWhite, $p2, $fwBold);
+    }
+  
+    .nav-item {
+      padding: 0 !important;
+      position: relative;
+  
+      &::after {
+          content: "";
+          @include position(absolute, 95%, 0, none);
+  
+          width: 0;
+          height: 3px;
+          @include linear-gradient(to right);
+          transition-duration: 0.5s;
+      }
+  
+      &.active::after, 
+      &:hover::after {
+          width: 100%;
+      }
+  
+      .nav-link {
+        @include Text($txtWhite, $p1, $fwMedium);
+        letter-spacing: 3px;
+        padding: 20px 24px;
+      }
+  
+    }
+  
+    // Medium devices (tablets, less than 992px)
+    @media (max-width: 991.98px) {
+      .navbar {
+        .navbar-nav {
+          background-color: $black90;
+          width: 100%;
+          border: none;
+          @include position(fixed, 100px, 0, 10);
+        }
+  
+        .nav-link {
+          font-size: $p2;
+          padding: 20px 14px;
+        }
+  
+        .navbar-toggler {
+          border: none;
+          outline: none;
+        }
+  
+        .navbar-toggler-icon {
+          color: $orange;
+        }
+  
+        .nav-item {
+  
+          &.active {
+              .nav-link {
+                color: $darkOrange;
+              }
+            }
+        }
+      }
+    }
+
+    &.header-black {
+      @include position(fixed, -80px, 0, 10);
+      background-color: $dark;
+      transition: all .5s;
+
+      p:first-child {
+        display: none;
+      }
+
+      .navbar-nav {
+        top: 68px;
+        border-bottom: none;
+        .nav-item {
+          .nav-link {
+            font-size: $p4;
+          }
+    
+          &.active .nav-link {
+            color: $txtDarkOrange;
+          }
+        }
+      }
+    }
+  
+    // Small devices (landscape phones, less than 768px)
+    @media (max-width: 767.98px) {
+    }
+  
+    // Extra small devices (portrait phones, less than 576px)
+    @media (max-width: 575.98px) {      
+    }
+  }
+
+
+
